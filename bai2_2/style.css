@@ -42,7 +42,7 @@ border-right:4px solid #356736;
 
 .buom1{
     position: absolute;
-    top: 238px;
+    top: 150px;
     left: 262px;
 }
 .logo{
@@ -50,8 +50,8 @@ border-right:4px solid #356736;
 }
 
 .logoimg{
-    position: absolute;
-    top: 10px;
-    left: 30px;
-    z-index: 10;
+	position: absolute;
+	top: 4px;
+	left: 9px;
+	z-index: 9;
 }
