@@ -6,13 +6,15 @@
 <title>Mục lục</title>
 <style>
     body {
-        margin: 0;
-        padding: 20px 15px;
-        /* Chuyển màu mượt từ Hồng nhạt (nối tiếp khung trên) sang Hồng trung tính */
-        background: linear-gradient(to bottom, #FDE2E4 0%, #FAD2D6 100%);
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        min-height: 100vh;
-    }
+    margin: 0;
+    padding: 15px; /* Giữ khoảng cách đệm vừa phải */
+    background: linear-gradient(to bottom, #FDE2E4 0%, #FAD2D6 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    /* Cấu hình quan trọng để xóa thanh cuộn thừa: */
+    overflow-x: hidden; /* Chặn hoàn toàn thanh cuộn ngang */
+    box-sizing: border-box;
+}
 
     .main-title {
         text-align: center;
