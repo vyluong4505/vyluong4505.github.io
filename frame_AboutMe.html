@@ -2,11 +2,57 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Phụ đề</title>
+<title>Footer</title>
+<style>
+    body {
+        margin: 0;
+        padding: 8px 15px;
+        /* Màu hồng đậm hơn menu một chút để tạo điểm kết thúc vững chãi */
+        background-color: #FAADB4; 
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .footer-bar {
+        width: 95%;
+        max-width: 1200px;
+        background: #9A4D5F; /* Màu tím rượu vang chủ đạo */
+        padding: 8px 20px;
+        border-radius: 30px; /* Bo tròn dạng viên thuốc cực hiện đại */
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(154, 77, 95, 0.2);
+    }
+
+    .footer-text {
+        color: #FFFFFF;
+        font-size: 16px; /* Hạ kích thước xuống để thanh lịch, không bị thô */
+        font-weight: bold;
+        letter-spacing: 1.5px;
+        margin: 0;
+        text-transform: uppercase;
+    }
+
+    /* Hiệu ứng lấp lánh nhẹ cho tên của bạn */
+    .designer-name {
+        color: #FFE3E5; 
+        text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+        position: relative;
+    }
+</style>
 </head>
 
-<body bgcolor="#DD93D2" text="#FFFFFF" style="text-align: center; font-size: 36px;">
-<strong> Thiết kế bởi Lương Tường Vy
-</strong>
+<body>
+
+    <div class="footer-bar">
+        <p class="footer-text">
+            © 2026 ✨ Thiết kế bởi <span class="designer-name">Lương Tường Vy</span> ✨ Mọi quyền được bảo lưu.
+        </p>
+    </div>
+
 </body>
 </html>
