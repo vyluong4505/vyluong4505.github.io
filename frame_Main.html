@@ -2,11 +2,84 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Untitled Document</title>
+<title>Bài tập môn Thiết kế web</title>
+<style>
+    /* Reset căn lề cơ bản */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        /* Trả lại đúng màu nền và màu chữ gốc của bạn */
+        background-color: #FADADD; 
+        color: #7A3E4D;
+        
+        /* Đổi sang font chữ hiện đại, thanh thoát hơn */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        
+        /* Căn giữa toàn bộ trang web vào chính giữa màn hình */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+    }
+
+    /* Chiếc "ô chứa" lớn cho toàn bộ bài tập */
+    .web-wrapper {
+        background-color: #ffffff; /* Nền trắng bên trong để làm nổi bật nội dung */
+        padding: 40px;
+        border-radius: 20px; /* Bo tròn góc cho mềm mại */
+        box-shadow: 0 10px 30px rgba(122, 62, 77, 0.15); /* Đổ bóng nhẹ tạo chiều sâu */
+        text-align: center;
+        max-width: 850px;
+        width: 100%;
+    }
+
+    /* Kiểu chữ tiêu đề mới - bớt giản dị hơn */
+    h1 {
+        font-size: 2.3rem;
+        font-weight: 700;
+        margin-bottom: 25px;
+        text-transform: uppercase; /* Viết hoa cho chuyên nghiệp */
+        letter-spacing: 1px; /* Giãn cách chữ một chút cho thoáng */
+    }
+
+    /* Khung chứa ảnh để xử lý kích thước mượt mà */
+    .image-container {
+        border-radius: 12px;
+        overflow: hidden;
+        display: inline-block;
+        max-width: 100%;
+    }
+
+    .image-container img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        transition: transform 0.3s ease; /* Tạo hiệu ứng mượt mà */
+    }
+
+    /* Hiệu ứng zoom nhẹ khi bạn rê chuột vào tấm ảnh */
+    .image-container:hover img {
+        transform: scale(1.02);
+    }
+</style>
 </head>
 
-<body bgcolor="#FADADD" text="#7A3E4D">
-	<p><em style="font-size: xx-large; text-align: center;">Hello! Đây là web bài tập môn Thiết kế web!</em></p>
-	<p><img src="welcome.gif" width="773" height="580" alt=""/></p>
+<body>
+
+    <div class="web-wrapper">
+        
+        <h2>Hello! Đây là web bài tập môn Thiết kế web!</h2>
+        
+        <div class="image-container">
+            <img src="welcome.gif" width="773" height="580" alt="Welcome GIF"/>
+        </div>
+        
+    </div>
+
 </body>
 </html>
