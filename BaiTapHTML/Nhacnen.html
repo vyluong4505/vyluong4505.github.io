@@ -2,38 +2,145 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Nhạc</title>
+<title>Doraemon - Bạn Thân Ơi Vui Quá Là Vui</title>
+<style>
+    /* 1. Nền trang web vui nhộn với tone xanh Doraemon */
+    body {
+        margin: 0;
+        padding: 20px;
+        background-color: #E2F1FF; /* Màu xanh nước biển nhạt */
+        background-image: radial-gradient(#BBE0FF 20%, transparent 20%),
+                          radial-gradient(#BBE0FF 20%, transparent 20%);
+        background-size: 30px 30px;
+        background-position: 0 0, 15px 15px; /* Tạo họa tiết chấm bi tinh nghịch */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    /* 2. Khung chứa toàn bộ nội dung (Thay thế cho table) */
+    .container {
+        max-width: 650px;
+        width: 100%;
+        background: white;
+        border: 4px solid #3A9BDC; /* Viền xanh đậm chuẩn Doraemon */
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(58, 155, 220, 0.3);
+        overflow: hidden;
+        animation: popUp 0.5s ease-out;
+    }
+
+    /* 3. Khung video */
+    .video-box {
+        background: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 4px solid #3A9BDC;
+    }
+
+    video {
+        width: 100%;
+        max-height: 360px;
+        display: block;
+    }
+
+    /* 4. Khung lời bài hát */
+    .lyrics-box {
+        padding: 25px;
+        background: #FFFCEB; /* Màu vàng nhạt giống chiếc chuông của Doraemon */
+        text-align: center;
+        line-height: 1.8;
+    }
+
+    /* 5. Từng dòng chữ lời bài hát */
+    .lyrics-text {
+        font-size: 20px;
+        font-weight: bold;
+        color: #2C3E50;
+        text-shadow: 1px 1px 0px #FFF;
+        margin-bottom: 8px;
+    }
+
+    /* Làm nổi bật các câu hát đặc biệt (Điệp khúc / Câu nói) */
+    .highlight-red {
+        color: #E74C3C; /* Màu đỏ nổi bật */
+        font-size: 22px;
+        transform: scale(1.05);
+        display: inline-block;
+        font-family: 'Arial Black', Gadget, sans-serif;
+    }
+
+    .nobita-speak {
+        color: #F39C12; /* Màu vàng cam Nobita */
+        font-style: italic;
+        font-size: 18px;
+        background: #FFF;
+        padding: 2px 10px;
+        border-radius: 15px;
+        border: 2px dashed #F39C12;
+        display: inline-block;
+        margin: 5px 0;
+    }
+
+    .doraemon-name {
+        color: #3498DB; /* Màu xanh Doraemon */
+        font-size: 28px;
+        font-weight: 900;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        text-shadow: 2px 2px 0px #FFF, 4px 4px 0px #3A9BDC;
+        margin: 10px 0;
+        display: block;
+    }
+
+    /* Hiệu ứng hoạt họa khi load trang */
+    @keyframes popUp {
+        0% { transform: scale(0.9); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+</style>
 </head>
 
 <body>
-<table width="100%" border="0">
-  <tbody>
-    <tr>
-      <td><video controls="controls" autoplay="autoplay" >
-        <source src="videoplayback.mp4" type="video/mp4">
-      </video></td>
-    </tr>
-    <tr>
-      <td><p>Thầm thương trộm nhớ em vẫn ngẩn ngơ đợi chờ</p>
-      <p>Dẫu biết chân tình chưa đủ lớn còn dang dở</p>
-      <p>Ngậm đắng nuốt cay em sợ mình chẳng thể nắm tay</p>
-      <p>Phải vùng vẫy nghĩ cách đứng dậy sao khó vậy</p>
-      <p>Em dành cả tương lai</p>
-      <p>Nhưng anh phải lòng yêu ai</p>
-      <p>Sao gặp em anh phải tỏ ra ngần ngại</p>
-      <p>Em lùi lại một bước</p>
-      <p>Ngẩn ngơ nhìn người anh thương</p>
-      <p>Hợp thành đôi uyên ương sánh bước trên đường</p>
-      <p>Chẳng buồn tương tư làm chi nên em chọn cách ngoảnh đầu bước đi</p>
-      <p>Dành trọn thanh xuân gửi trao mà anh nỡ ngó lơ là sao</p>
-      <p>Dừng lại em cũng đau lắm nhưng em không muốn mình phải vấn vướng</p>
-      <p>Và em cũng biết định hướng người anh thương em thôi nhân nhượng</p>
-      <p>Kỷ niệm em đâu nỡ xoá nên em gom góp gửi vào nắng mai</p>
-      <p>Để được thăng hoa mãi mãi tô điểm nhấn không chút mờ phai</p>
-      <p>Dù sao cũng xin cảm ơn đã khiến cuộc sống em rạng rỡ hơn</p>
-      <p>Bộn bề em xin nhận lấy nhường cho anh hạnh phúc đong đầy </p></td>
-    </tr>
-  </tbody>
-</table>
+
+<div class="container">
+    <!-- Phần Video -->
+    <div class="video-box">
+        <video controls autoplay>
+            <source src="doremon.mp4" type="video/mp4">
+            Trình duyệt của bạn không hỗ trợ xem video trực tiếp.
+        </video>
+    </div>
+    
+    <!-- Phần Lời Bài Hát -->
+    <div class="lyrics-box">
+        <div class="lyrics-text">🎵 Bạn thân ơi vui quá là vui!</div>
+        <div class="lyrics-text">Bao ước mơ mình vẫn đi tìm</div>
+        <div class="lyrics-text">Chợt hôm nay bạn đã khiến cho ước mơ</div>
+        <div class="lyrics-text">Bỗng nhiên không còn là xa xôi 🌟</div>
+        
+        <hr style="border: 1px dashed #3A9BDC; margin: 15px 0;">
+
+        <div class="lyrics-text">🎵 Bạn thân ơi vui quá là vui!</div>
+        <div class="lyrics-text">Bao ước mơ cùng <span style="color: #9B59B6;">túi thần kì</span></div>
+        <div class="lyrics-text">Và bao nhiêu bảo bối nay tất cả</div>
+        <div class="lyrics-text" style="color: #2ECC71;">Tất cả mọi điều sẽ xong ✨</div>
+        
+        <hr style="border: 1px dashed #3A9BDC; margin: 15px 0;">
+
+        <div class="lyrics-text">Ước muốn bay cùng cánh chim về nơi phương trời xa...</div>
+        <div class="nobita-speak">🛸 (Được chong chóng tre nè Nôbita)</div>
+        
+        <div class="lyrics-text"><span class="highlight-red">Á a a Mèo máy thông minh đáng yêu ghê...</span></div>
+        <div class="doraemon-name">Doraemon! 🐱</div>
+        
+        <div class="lyrics-text"><span class="highlight-red">Á a a Mèo máy thông minh đáng yêu ghê...</span></div>
+        <div class="doraemon-name">Doraemon! 🔔</div>
+    </div>
+</div>
+
 </body>
 </html>
