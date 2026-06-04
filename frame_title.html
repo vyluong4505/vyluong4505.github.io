@@ -2,20 +2,113 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Untitled Document</title>
+<title>Thông tin sinh viên</title>
+<style>
+    /* 1. Tạo nền trang đồng bộ với toàn hệ thống */
+    body {
+        margin: 0;
+        padding: 20px;
+        background-color: #FDE2E4; /* Màu hồng pastel của menu */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 120px; /* Thích hợp để nhét vào khung frame_title phía trên */
+    }
+
+    /* 2. Thiết kế chiếc Card Profile bo góc siêu đẹp */
+    .profile-card {
+        width: 95%;
+        max-width: 1200px;
+        background: white;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 30px;
+        box-shadow: 0 8px 20px rgba(154, 77, 95, 0.15); /* Đổ bóng tím hồng nhẹ */
+        border: 2px solid #FFF0F2;
+        transition: transform 0.3s ease;
+    }
+
+    /* Hiệu ứng nhấp nhô nhẹ khi di chuột vào cho sinh động */
+    .profile-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(154, 77, 95, 0.25);
+    }
+
+    /* 3. Khung bên trái chứa ảnh đại diện hình thỏ */
+    .avatar-box {
+        display: flex;
+        align-items: center;
+    }
+
+    .avatar-box img {
+        height: 90px; /* Thu gọn chiều cao lại một chút cho cân đối với thanh tiêu đề */
+        width: auto;
+        filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1)); /* Tạo bóng đổ riêng cho con thỏ */
+    }
+
+    /* 4. Khung bên phải chứa thông tin chữ */
+    .info-box {
+        text-align: right;
+        background: #9A4D5F; /* Màu tím rượu vang chuẩn tone với Menu */
+        padding: 15px 25px;
+        border-radius: 12px;
+        color: white;
+        min-width: 320px;
+        box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    /* Định dạng tên sinh viên nổi bật */
+    .info-box h2 {
+        margin: 0 0 5px 0;
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        color: #FFF;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    }
+
+    /* Định dạng tên lớp */
+    .info-box .class-name {
+        margin: 0 0 8px 0;
+        font-size: 16px;
+        color: #FDE2E4; /* Màu hồng nhạt */
+        font-weight: 500;
+    }
+
+    /* Định dạng dòng chữ chạy Marquee môn học */
+    .info-box marquee {
+        display: block;
+        background: rgba(255, 255, 255, 0.15);
+        padding: 3px 8px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #FFF;
+        border: 1px dashed rgba(255, 255, 255, 0.3);
+    }
+</style>
 </head>
 
 <body>
-<table width="1720" border="0" align="center" cellpadding="0" cellspacing="0">
-  <tbody>
-    <tr>
-      <td width="369" align="left" valign="middle"><img src="thotim6.gif" width="211" height="154" alt=""/></td>
-      <td width="1351" align="right" valign="middle" bgcolor="#DD93D2" style="font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', serif; color: #FFFFFF; font-size: 24px;"><p>Lương Tường Vy</p>
-      <p>Lớp: CN24CD</p>
-      <p><marquee>Môn: Thiết kế web</marquee></p></td>
-    </tr>
-  </tbody>
-</table>
+
+<div class="profile-card">
+    
+    <div class="avatar-box">
+        <img src="thotim6.gif" alt="Thỏ tím">
+    </div>
+    
+    <div class="info-box">
+        <h2>✨ Lương Tường Vy</h2>
+        <div class="class-name">🎓 Lớp: CN24CD</div>
+        <marquee behavior="scroll" direction="left" scrollamount="5">
+            📝 Môn học: Thiết kế Website với HTML5 & CSS3 🚀
+        </marquee>
+    </div>
+
+</div>
+
 </body>
 </html>
-
