@@ -6,103 +6,78 @@
 <title>Mục lục</title>
 <style>
     body {
-    margin: 0;
-    padding: 15px; /* Giữ khoảng cách đệm vừa phải */
-    background: linear-gradient(to bottom, #FDE2E4 0%, #FAD2D6 100%);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    
-    /* Cấu hình quan trọng để xóa thanh cuộn thừa: */
-    overflow-x: hidden; /* Chặn hoàn toàn thanh cuộn ngang */
-    box-sizing: border-box;
-}
+        margin: 0;
+        padding: 20px 15px;
+        background: linear-gradient(135deg, #FFF0F2 0%, #FAD2D6 100%);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        overflow-x: hidden;
+        box-sizing: border-box;
+        position: relative;
+    }
+
+    /* ---- HIỆU ỨNG BONG BÓNG ĐỒNG BỘ ---- */
+    .bubble {
+        position: absolute;
+        bottom: -20px;
+        background: rgba(255, 255, 255, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 50%;
+        pointer-events: none;
+        animation: floatUpSide 8s infinite ease-in;
+    }
+    .bb1 { width: 15px; height: 15px; left: 15%; animation-delay: 0s; }
+    .bb2 { width: 25px; height: 25px; left: 45%; animation-delay: 2s; }
+    .bb3 { width: 18px; height: 18px; left: 75%; animation-delay: 4.5s; }
+
+    @keyframes floatUpSide {
+        0% { transform: translateY(0) scale(1); opacity: 0; }
+        10% { opacity: 0.7; }
+        90% { opacity: 0.7; }
+        100% { transform: translateY(-700px) scale(0.4); opacity: 0; }
+    }
 
     .main-title {
-        text-align: center;
-        color: #9A4D5F;
-        font-size: 24px;
-        font-weight: 900;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        margin-bottom: 20px;
-        text-shadow: 2px 2px 0px #FFF;
+        text-align: center; color: #9A4D5F; font-size: 22px; font-weight: 900;
+        text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px;
+        text-shadow: 1px 1px 0px #FFF; position: relative; z-index: 2;
     }
 
     details {
-        margin-bottom: 12px;
-        background-color: rgba(255, 255, 255, 0.7); /* Nền trong suốt nhẹ ôm lấy màu Gradient */
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(154, 77, 95, 0.08);
-        overflow: hidden;
-        transition: 0.3s;
+        margin-bottom: 14px; background-color: rgba(255, 255, 255, 0.6);
+        border-radius: 10px; box-shadow: 0 4px 12px rgba(154, 77, 95, 0.06);
+        overflow: hidden; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.5);
+        position: relative; z-index: 2;
     }
+    details[open] { background-color: rgba(255, 255, 255, 0.9); }
 
     summary {
-        list-style: none;
-        position: relative;
-        cursor: pointer;
-        background: #9A4D5F;
-        color: white;
-        padding: 12px 15px;
-        font-size: 16px;
-        font-weight: bold;
-        border-radius: 8px;
-        transition: 0.3s;
+        list-style: none; position: relative; cursor: pointer; background: #9A4D5F;
+        color: white; padding: 14px 18px; font-size: 15px; font-weight: bold;
+        border-radius: 10px; transition: 0.3s;
     }
-
     summary::-webkit-details-marker { display: none; }
-
-    summary::after {
-        content: '▶';
-        position: absolute;
-        right: 15px;
-        font-size: 12px;
-        transition: 0.3s;
-    }
-
-    summary:hover { background: #B85C78; }
-
-    details[open] summary {
-        border-radius: 8px 8px 0 0;
-        background: #803C4B;
-    }
+    summary::after { content: '➔'; position: absolute; right: 18px; font-size: 12px; transition: 0.3s ease; }
+    summary:hover { background: linear-gradient(135deg, #B85C78, #9A4D5F); }
+    details[open] summary { border-radius: 10px 10px 0 0; background: #803C4B; }
     details[open] summary::after { transform: rotate(90deg); }
 
-    .menu-group {
-        background: white;
-        border: 2px solid #803C4B;
-        border-top: none;
-        border-radius: 0 0 8px 8px;
-    }
-
+    .menu-group { background: white; padding: 5px 0; }
     .menu-group a {
-        display: block;
-        padding: 10px 15px;
-        color: #5A2B36;
-        text-decoration: none;
-        font-size: 16px;
-        border-bottom: 1px solid #FDE2E4;
-        transition: 0.3s;
+        display: block; padding: 11px 20px; color: #5A2B36; text-decoration: none;
+        font-size: 14px; font-weight: 500; border-bottom: 1px solid #FFF0F2; transition: all 0.3s;
     }
-
     .menu-group a:last-child { border-bottom: none; }
-
-    .menu-group a:hover {
-        background: #FFF0F2;
-        padding-left: 25px;
-        color: #9A4D5F;
-        font-weight: bold;
-    }
-
-    .contact {
-        background: #FFEAF3;
-        border-left: 5px solid #9A4D5F;
-        font-weight: bold;
-    }
+    .menu-group a:hover { background-color: #FFF0F2; color: #9A4D5F; padding-left: 25px; }
+    .contact { background: #FFF0F2; border-left: 4px solid #9A4D5F; font-weight: bold !important; color: #9A4D5F !important; }
 </style>
 </head>
 <body>
 
-    <h2 class="main-title">📂 Mục Lục</h2>
+    <div class="bubble bb1"></div>
+    <div class="bubble bb2"></div>
+    <div class="bubble bb3"></div>
+
+    <h2 class="main-title">📂 Mục lục</h2>
 
     <details> 
         <summary>📘 Bài tập chương 1</summary>
