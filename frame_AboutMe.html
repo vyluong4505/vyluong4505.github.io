@@ -6,9 +6,8 @@
 <style>
     body {
         margin: 0;
-        padding: 8px 15px;
-        /* Màu hồng đậm hơn menu một chút để tạo điểm kết thúc vững chãi */
-        background-color: #FAADB4; 
+        padding: 5px 20px;
+        background-color: #FFF5F6; /* Đổi sang nền nhạt để làm nổi bật chiếc khung chính */
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         display: flex;
         justify-content: center;
@@ -16,37 +15,74 @@
         height: 60px;
         box-sizing: border-box;
         overflow: hidden;
+        position: relative;
     }
 
+    /* ---- HIỆU ỨNG BONG BÓNG ĐỒNG BỘ ---- */
+    .bubble {
+        position: absolute;
+        bottom: -10px;
+        background: rgba(199, 125, 255, 0.25);
+        border: 1px solid rgba(199, 125, 255, 0.4);
+        border-radius: 50%;
+        pointer-events: none;
+        animation: floatUpFooter 5s infinite ease-in;
+    }
+    .bb1 { width: 12px; height: 12px; left: 20%; animation-delay: 0s; }
+    .bb2 { width: 18px; height: 18px; left: 50%; animation-delay: 2s; }
+    .bb3 { width: 10px; height: 10px; left: 80%; animation-delay: 3.5s; }
+
+    @keyframes floatUpFooter {
+        0% { transform: translateY(0); opacity: 0; }
+        10% { opacity: 0.6; }
+        90% { opacity: 0.6; }
+        100% { transform: translateY(-70px); opacity: 0; }
+    }
+
+    /* Đưa chiếc khung (Card) trở lại và có dải màu chuyển động ảo diệu bên trong */
     .footer-bar {
-        width: 95%;
-        max-width: 1200px;
-        background: #9A4D5F; /* Màu tím rượu vang chủ đạo */
-        padding: 8px 20px;
-        border-radius: 30px; /* Bo tròn dạng viên thuốc cực hiện đại */
+        width: 100%;
+        max-width: 1400px;
+        padding: 8px 30px;
+        border-radius: 30px; /* Bo tròn dài dạng kẹo ngọt cực đẹp */
+        box-shadow: 0 4px 15px rgba(154, 77, 95, 0.12);
+        z-index: 2;
         text-align: center;
-        box-shadow: 0 4px 15px rgba(154, 77, 95, 0.2);
+        background: linear-gradient(270deg, #9A4D5F, #C77DFF, #FF8FAB, #9A4D5F);
+        background-size: 600% 600%;
+        animation: gradientMove 12s ease infinite;
+        border: 1px solid rgba(255, 255, 255, 0.3);
     }
 
     .footer-text {
         color: #FFFFFF;
-        font-size: 16px; /* Hạ kích thước xuống để thanh lịch, không bị thô */
-        font-weight: bold;
+        font-size: 13px;
+        font-weight: 600;
         letter-spacing: 1.5px;
         margin: 0;
         text-transform: uppercase;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
     }
 
-    /* Hiệu ứng lấp lánh nhẹ cho tên của bạn */
     .designer-name {
-        color: #FFE3E5; 
-        text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
-        position: relative;
+        color: #FFF; 
+        font-weight: 800;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+
+    @keyframes gradientMove {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
     }
 </style>
 </head>
 
 <body>
+
+    <div class="bubble bb1"></div>
+    <div class="bubble bb2"></div>
+    <div class="bubble bb3"></div>
 
     <div class="footer-bar">
         <p class="footer-text">
