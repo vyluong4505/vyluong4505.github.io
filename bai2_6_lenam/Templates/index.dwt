@@ -30,6 +30,11 @@ function MM_swapImage() { //v3.0
    if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
 }
 </script>
+	<style>
+h1{
+    text-align: center;
+}
+</style>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="MM_preloadImages('../images/trangchu_over.gif','../images/gioithieu_over.gif','../images/tintuc_over.gif','../images/dichvu_over.gif','../images/lienhe_over.gif')">
 <!-- Save for Web Slices (lenam.psd) -->
