@@ -20,12 +20,14 @@ body {
     font-family: "Times New Roman", Times, serif;
 }
 
-/*
-    Hình mẫu cũ khoảng 640 x 378px.
-    Toàn bộ bài này được tăng lên 1,5 lần:
 
-    640 × 1,5 = 960px
-    378 × 1,5 = 567px
+/* ==================================================
+   KHUNG TOÀN TRANG
+================================================== */
+
+/*
+    Giữ nguyên kích thước bạn đã chỉnh:
+    960 × 567px.
 */
 .wrapper {
     position: relative;
@@ -37,6 +39,14 @@ body {
 
     overflow: hidden;
     background-color: #ffffff;
+
+    /*
+        Trang trí đường viền theo yêu cầu đề.
+    */
+    border-top: 1px solid #a0acc3;
+    border-right: 1px solid #a0acc3;
+    border-bottom: 2px solid #08789d;
+    border-left: 1px solid #a0acc3;
 }
 
 
@@ -53,48 +63,27 @@ body {
     height: 567px;
 
     overflow: hidden;
+
+    /*
+        Đặt tem.jpg làm nền cho khung bên trái.
+        Không sử dụng moc.gif.
+    */
+    background-image: url("IMAGES/tem.jpg");
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 438px 430px;
     background-color: #ffffff;
+
+    /*
+        Trang trí đường viền phân cách hai khung.
+    */
+    border-right: 1px solid #6d83a9;
 }
 
 
-/* Ảnh mờ ở góc trái */
-
-.anh-moc {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 195px;
-    height: 195px;
-
-    object-fit: contain;
-    opacity: 0.7;
-
-    z-index: 2;
-}
-
-
-/*
-    Ảnh tem.jpg nằm dưới sọc ngang.
-    Không thu nhỏ ảnh xuống như phiên bản trước.
-*/
-
-.anh-tem-nen {
-    position: absolute;
-    top: 0;
-    left: 0px;
-
-    width: 438px;
-    height: 430px;
-
-    object-fit: cover;
-    object-position: center top;
-
-    z-index: 1;
-}
-
-
-/* Đường sọc ngang màu vàng */
+/* ==================================================
+   ĐƯỜNG SỌC NGANG MÀU VÀNG
+================================================== */
 
 .soc-ngang {
     position: absolute;
@@ -109,8 +98,7 @@ body {
     background-position: left center;
 
     /*
-        Border dự phòng nếu ảnh socngang.gif quá mảnh
-        hoặc có vùng trong suốt.
+        Thêm viền để đường vàng hiện rõ.
     */
     border-top: 2px solid #e5a900;
 
@@ -118,7 +106,9 @@ body {
 }
 
 
-/* Dải màu đứng */
+/* ==================================================
+   DẢI MÀU ĐỨNG
+================================================== */
 
 .mau-doc {
     position: absolute;
@@ -134,7 +124,9 @@ body {
 }
 
 
-/* Danh sách bốn con tem */
+/* ==================================================
+   DANH SÁCH BỐN CON TEM
+================================================== */
 
 .danh-sach-tem {
     position: absolute;
@@ -160,7 +152,26 @@ body {
 }
 
 
-/* Con tem nghiêng */
+/* Các hình tem có thể rê chuột */
+
+.tem-minh-hoa {
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.danh-sach-tem .tem-minh-hoa:hover {
+    transform: translateY(-7px) scale(1.06);
+
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.4);
+}
+
+
+/* ==================================================
+   CON TEM NGHIÊNG
+================================================== */
 
 .tem-nghieng {
     position: absolute;
@@ -173,6 +184,49 @@ body {
     object-fit: contain;
 
     z-index: 25;
+}
+
+.tem-nghieng:hover {
+    transform: rotate(-7deg) scale(1.08);
+
+    filter: drop-shadow(
+        0 5px 4px rgba(0, 0, 0, 0.35)
+    );
+}
+
+
+/* ==================================================
+   HỘP THÔNG BÁO TEM
+================================================== */
+
+.thong-bao-tem {
+    position: absolute;
+    top: 372px;
+    left: 95px;
+
+    display: none;
+
+    min-width: 195px;
+    height: 34px;
+
+    padding: 7px 12px;
+
+    border: 1px solid #08789d;
+    border-radius: 4px;
+
+    background-color: #fff8c8;
+
+    color: #d00000;
+    text-align: center;
+
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 18px;
+
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+
+    z-index: 100;
 }
 
 
@@ -188,16 +242,12 @@ body {
     width: 462px;
     height: 6px;
 
-    /*
-        Sử dụng ảnh MSOC.gif như tài nguyên bài.
-    */
     background-image: url("IMAGES/MSOC.gif");
     background-repeat: repeat-x;
     background-position: left center;
 
     /*
-        Đường xanh dự phòng giúp luôn hiển thị,
-        kể cả MSOC.gif quá nhạt hoặc trong suốt.
+        Border dự phòng để chắc chắn có đường xanh.
     */
     border-top: 4px solid #08789d;
 
@@ -205,7 +255,9 @@ body {
 }
 
 
-/* Menu cuối trang */
+/* ==================================================
+   MENU HOME - SUUTAP - CLB
+================================================== */
 
 .menu-footer {
     position: absolute;
@@ -228,14 +280,45 @@ body {
     z-index: 35;
 }
 
-.menu-footer a {
+
+/*
+    Mô phỏng Flash Text bằng CSS.
+
+    Flash thật không còn được các trình duyệt mới hỗ trợ,
+    nhưng giao diện và hiệu ứng vẫn giống nút Flash Text.
+*/
+.menu-footer .nut-flash {
+    display: inline-block;
+
+    min-width: 72px;
+    height: 23px;
+
+    padding: 2px 7px;
+
+    border: 1px solid transparent;
+
     color: #263f9b;
+    text-align: center;
     text-decoration: none;
+
+    font-family: "Times New Roman", Times, serif;
+    font-size: 15px;
+    line-height: 17px;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background-color 0.2s ease;
 }
 
-.menu-footer a:hover {
+.menu-footer .nut-flash:hover {
+    border-color: #8ca1c6;
+    background-color: #eaf0fa;
+
     color: #e50072;
-    text-decoration: underline;
+
+    transform: translateY(-2px);
 }
 
 .menu-footer span {
@@ -259,7 +342,9 @@ body {
 }
 
 
-/* Ảnh tiêu đề */
+/* ==================================================
+   ẢNH TIÊU ĐỀ
+================================================== */
 
 .tieu-de-anh {
     position: absolute;
@@ -279,7 +364,9 @@ body {
 }
 
 
-/* Nội dung lịch sử */
+/* ==================================================
+   NỘI DUNG LỊCH SỬ
+================================================== */
 
 .noi-dung {
     position: absolute;
@@ -297,7 +384,9 @@ body {
 }
 
 
-/* Con dấu màu hồng */
+/* ==================================================
+   CON DẤU MÀU HỒNG
+================================================== */
 
 .con-dau {
     position: absolute;
@@ -319,7 +408,9 @@ body {
 }
 
 
-/* Dòng NHÓM MULTIMEDIA SƯU TẬP */
+/* ==================================================
+   DÒNG NHÓM MULTIMEDIA SƯU TẬP
+================================================== */
 
 .dong-nhom {
     position: absolute;
@@ -349,12 +440,15 @@ body {
 
 
 /* ==================================================
-   CON TEM NẰM GIỮA HAI CỘT
+   CON TEM GIỮA HAI CỘT
 ================================================== */
 
 .tem-ngay {
     position: absolute;
-    top: 93px;
+
+    /*
+        Giữ đúng vị trí ngang bạn đã chỉnh.
+    */
     left: 425px;
 
     width: 102px;
@@ -362,5 +456,46 @@ body {
 
     object-fit: contain;
 
+    cursor: pointer;
+
     z-index: 50;
+
+    /*
+        Cho phép con tem rơi từ trên xuống.
+    */
+    animation-name: temRoi;
+    animation-duration: 4s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: infinite;
+}
+
+
+/*
+    Hiệu ứng chỉ làm thay đổi top.
+
+    Vị trí kết thúc là top: 93px,
+    đúng bằng vị trí bạn đã chỉnh trước đó.
+*/
+@keyframes temRoi {
+    0% {
+        top: -100px;
+        transform: rotate(-8deg);
+    }
+
+    25% {
+        transform: rotate(5deg);
+    }
+
+    50% {
+        transform: rotate(-4deg);
+    }
+
+    75% {
+        transform: rotate(3deg);
+    }
+
+    100% {
+        top: 93px;
+        transform: rotate(0deg);
+    }
 }
