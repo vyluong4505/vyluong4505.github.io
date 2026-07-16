@@ -1,0 +1,488 @@
+@charset "utf-8";
+
+/* ==================================================
+   THIẾT LẬP CHUNG
+================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-width: 1030px;
+    background-color: #ffffff;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+/* Giữ đúng kích thước các ảnh Photoshop */
+img {
+    display: block;
+    border: 0;
+}
+
+
+/* ==================================================
+   KHUNG TOÀN TRANG
+================================================== */
+
+/*
+    Bỏ cột trống 20px.
+
+    Chiều rộng mới:
+    185 + 628 + 217 = 1030px
+*/
+.trang-hoa {
+    width: 1030px;
+    height: 610px;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+
+/* ==================================================
+   PHẦN ĐẦU
+================================================== */
+
+.phan-dau {
+    width: 1030px;
+    height: 161px;
+
+    display: grid;
+    grid-template-columns: 185px 628px 217px;
+
+    margin: 0;
+    padding: 0;
+}
+
+.dau-trai,
+.dau-giua,
+.dau-phai {
+    width: 100%;
+    height: 161px;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+}
+
+.dau-trai img {
+    width: 185px;
+    height: 161px;
+}
+
+.dau-giua img {
+    width: 628px;
+    height: 161px;
+}
+
+.dau-phai img {
+    width: 217px;
+    height: 161px;
+}
+
+
+/* ==================================================
+   PHẦN THÂN
+================================================== */
+
+.phan-than {
+    width: 1030px;
+    height: 449px;
+
+    display: grid;
+    grid-template-columns: 185px 628px 217px;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ==================================================
+   CỘT TRÁI
+================================================== */
+
+.cot-trai {
+    width: 185px;
+    height: 449px;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+.menu-link {
+    display: block;
+
+    width: 185px;
+
+    margin: 0;
+    padding: 0;
+
+    line-height: 0;
+    text-decoration: none;
+}
+
+.menu-link img {
+    display: block;
+
+    width: 185px;
+
+    margin: 0;
+    padding: 0;
+}
+
+.hoa-hong {
+    display: block;
+
+    width: 185px;
+    height: 251px;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ==================================================
+   LỚP KHUNG VIỀN THEO YÊU CẦU
+================================================== */
+
+/*
+    Không còn ô rộng 20px.
+
+    Đường gạch nằm trực tiếp ở mép trái nội dung,
+    vì vậy không xuất hiện khoảng trắng như hình lỗi.
+*/
+.noi-dung-dang-ky {
+    width: 628px;
+    height: 449px;
+
+    margin: 0;
+
+    padding: 0 18px 0 14px;
+
+    border-left-style: dashed;
+    border-left-width: thin;
+    border-left-color: #009966;
+
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+
+/* ==================================================
+   LỚP TIÊU ĐỀ
+================================================== */
+
+/*
+    Theo đúng yêu cầu:
+    - Tahoma
+    - Màu đen
+    - 24px
+    - In đậm
+*/
+.tieu-de {
+    margin: 0;
+    padding: 5px 0 14px;
+
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 30px;
+    color: #000000;
+    text-align: center;
+}
+
+
+/* ==================================================
+   LỚP NỘI DUNG
+================================================== */
+
+/*
+    Theo đúng yêu cầu:
+    - Tahoma
+    - Màu đen
+    - 11px
+*/
+.noi-dung {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 11px;
+    color: #000000;
+}
+
+.huong-dan {
+    margin: 0;
+    padding: 0 0 14px;
+
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 11px;
+    line-height: 15px;
+    color: #000000;
+}
+
+
+/* ==================================================
+   LỚP GHI CHÚ
+================================================== */
+
+/*
+    Theo đúng yêu cầu:
+    - Arial
+    - Màu đỏ
+    - 11px
+*/
+.ghi-chu {
+    margin-left: 4px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #ff0000;
+}
+
+
+/* ==================================================
+   CÁC DÒNG FORM
+================================================== */
+
+.dong-form {
+    width: 100%;
+    min-height: 31px;
+
+    display: grid;
+    grid-template-columns: 165px 1fr;
+    align-items: center;
+
+    margin: 0;
+    padding: 0;
+}
+
+.nhan-form {
+    padding-right: 8px;
+
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 11px;
+    color: #000000;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.vung-nhap {
+    display: flex;
+    align-items: center;
+
+    min-width: 0;
+}
+
+
+/* ==================================================
+   Ô NHẬP
+================================================== */
+
+.o-nhap,
+.o-chon,
+.o-yeu-cau {
+    border: 1px solid #8ca5c0;
+    background-color: #ffffff;
+
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 11px;
+    color: #000000;
+
+    outline: none;
+}
+
+.o-nhap,
+.o-chon {
+    height: 22px;
+    padding: 2px 5px;
+}
+
+.o-nhap:focus,
+.o-chon:focus,
+.o-yeu-cau:focus {
+    border-color: #4d84b0;
+}
+
+
+/* Kích thước các ô */
+
+.o-ho-ten {
+    width: 330px;
+}
+
+.o-dia-chi {
+    width: 400px;
+}
+
+.o-dien-thoai {
+    width: 190px;
+}
+
+.o-email {
+    width: 260px;
+}
+
+.o-so-luong {
+    width: 110px;
+}
+
+.loai-hoa {
+    width: 140px;
+}
+
+.mau-hoa {
+    width: 90px;
+}
+
+.hang-loai-hoa {
+    gap: 8px;
+}
+
+.nhan-mau {
+    margin-left: 4px;
+
+    font-size: 11px;
+}
+
+
+/* ==================================================
+   RADIO
+================================================== */
+
+.nhom-radio {
+    gap: 12px;
+}
+
+.nhom-radio label {
+    display: inline-flex;
+    align-items: center;
+
+    margin: 0;
+
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 11px;
+    color: #000000;
+    white-space: nowrap;
+}
+
+.nhom-radio input[type="radio"] {
+    width: auto;
+    height: auto;
+
+    margin: 0 4px 0 0;
+
+    vertical-align: middle;
+}
+
+
+/* ==================================================
+   TEXTAREA
+================================================== */
+
+.dong-yeu-cau {
+    align-items: start;
+    min-height: 100px;
+}
+
+.dong-yeu-cau .nhan-form {
+    padding-top: 5px;
+}
+
+.o-yeu-cau {
+    width: 400px;
+    height: 92px;
+
+    padding: 5px;
+
+    resize: none;
+}
+
+
+/* ==================================================
+   NÚT
+================================================== */
+
+.dong-nut {
+    min-height: 33px;
+}
+
+.nut-lenh {
+    min-width: 110px;
+    height: 25px;
+
+    margin-right: 8px;
+    padding: 2px 12px;
+
+    border: 1px solid #56738d;
+    border-radius: 3px;
+
+    background: linear-gradient(
+        to bottom,
+        #ffffff,
+        #e6e6e6
+    );
+
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 11px;
+    color: #000000;
+
+    cursor: pointer;
+}
+
+.nut-lenh:hover {
+    background: linear-gradient(
+        to bottom,
+        #f4fbff,
+        #d5e8f3
+    );
+}
+
+.nut-lenh:active {
+    transform: translateY(1px);
+}
+
+
+/* ==================================================
+   BÁO LỖI
+================================================== */
+
+.input-loi {
+    border: 1px solid #ff0000 !important;
+    background-color: #fff2f2 !important;
+}
+
+
+/* ==================================================
+   CỘT PHẢI
+================================================== */
+
+.cot-phai {
+    width: 217px;
+    height: 449px;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+}
+
+.cot-phai img {
+    display: block;
+
+    width: 217px;
+    height: 449px;
+
+    margin: 0;
+    padding: 0;
+}
