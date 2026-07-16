@@ -2,82 +2,142 @@
 <html lang="vi">
 <head>
     <meta charset="utf-8">
-    <title>Con tem có từ khi nào?</title>
-    <link rel="stylesheet" href="style.css">
+
+    <title>Sưu tập tem</title>
+
+    <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 
 <div class="wrapper">
 
-    <!-- ===================== PHẦN BÊN TRÁI ===================== -->
+    <!-- ============================================
+         KHUNG BÊN TRÁI
+    ============================================= -->
     <div class="ben-trai">
 
-        <!-- Ảnh mờ góc trên bên trái --><!--
-            Ảnh tem.jpg được đặt dưới đường sọc ngang.
-            z-index của ảnh này thấp hơn đường sọc.
+        <!--
+            tem.jpg được đặt làm nền bằng CSS
+            cho khung bên trái.
         -->
-        <img
-            src="IMAGES/tem.jpg"
-            alt=""
-            class="anh-tem-nen"
-        >
 
         <!-- Đường sọc ngang màu vàng -->
-      <div class="soc-ngang"></div>
+        <div class="soc-ngang"></div>
 
-        <!-- Dải màu dọc bên phải -->
+        <!-- Dải màu đứng -->
         <img
             src="IMAGES/mmau1.gif"
             alt=""
             class="mau-doc"
         >
 
-        <!-- Bốn con tem phía dưới -->
+        <!-- Nhóm bốn con tem -->
         <div class="danh-sach-tem">
-            <img src="IMAGES/tem1a.jpg" alt="Tem khoa học">
-            <img src="IMAGES/tem1b.jpg" alt="Tem cầu">
-            <img src="IMAGES/tem1d.jpg" alt="Tem nghệ thuật">
-            <img src="IMAGES/tem1e.jpg" alt="Tem hoa">
+
+            <img
+                src="IMAGES/tem1a.jpg"
+                alt="Tem khoa học"
+                class="tem-minh-hoa"
+                onmouseover="hienThongBao(this);"
+                onmouseout="anThongBao();"
+            >
+
+            <img
+                src="IMAGES/tem1b.jpg"
+                alt="Tem công trình"
+                class="tem-minh-hoa"
+                onmouseover="hienThongBao(this);"
+                onmouseout="anThongBao();"
+            >
+
+            <img
+                src="IMAGES/tem1d.jpg"
+                alt="Tem nghệ thuật"
+                class="tem-minh-hoa"
+                onmouseover="hienThongBao(this);"
+                onmouseout="anThongBao();"
+            >
+
+            <img
+                src="IMAGES/tem1e.jpg"
+                alt="Tem hoa"
+                class="tem-minh-hoa"
+                onmouseover="hienThongBao(this);"
+                onmouseout="anThongBao();"
+            >
+
         </div>
 
         <!-- Con tem nghiêng -->
         <img
             src="IMAGES/tem1f.gif"
             alt="Tem nghiêng"
-            class="tem-nghieng"
+            class="tem-nghieng tem-minh-hoa"
+            onmouseover="hienThongBao(this);"
+            onmouseout="anThongBao();"
         >
 
-        <!--
-            Đường xanh phía dưới.
-            Có cả nền MSOC.gif và border dự phòng,
-            nên chắc chắn sẽ hiển thị.
-        -->
+        <!-- Hộp thông báo -->
+        <div id="thongBaoTem" class="thong-bao-tem">
+            Tem đang được bán
+        </div>
+
+        <!-- Đường xanh dưới nhóm tem -->
         <div class="gach-xanh-duoi"></div>
 
-        <!-- Menu -->
-        <nav class="menu-footer">
-            <a href="#">TRANG CHỦ</a>
-            <span>|</span>
-            <a href="#">SƯU TẬP</a>
-            <span>|</span>
-            <a href="#">CLB</a>
-        </nav>
+        <!--
+            Bộ nút mô phỏng Flash Text.
+            Liên kết rỗng sử dụng href="#".
+        -->
+        <div class="menu-footer">
 
-  </div>
+            <a
+                href="#"
+                class="nut-flash"
+                onclick="return false;"
+            >
+                HOME
+            </a>
 
-    <!-- ===================== PHẦN BÊN PHẢI ===================== -->
+            <span>|</span>
+
+            <a
+                href="#"
+                class="nut-flash"
+                onclick="return false;"
+            >
+                SUUTAP
+            </a>
+
+            <span>|</span>
+
+            <a
+                href="#"
+                class="nut-flash"
+                onclick="return false;"
+            >
+                CLB
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- ============================================
+         KHUNG BÊN PHẢI
+    ============================================= -->
     <div class="ben-phai">
 
-        <!-- Tiêu đề hình ảnh -->
-      <div class="tieu-de-anh">
+        <!-- Ảnh tiêu đề -->
+        <div class="tieu-de-anh">
             <img
                 src="IMAGES/lich_su.jpg"
                 alt="Con tem có từ khi nào?"
             >
         </div>
 
-        <!-- Nội dung -->
+        <!-- Nội dung lịch sử -->
         <div class="noi-dung">
             Năm 1838, Ông Rowland Hill,<br>
             giám đốc Bưu điện Anh quốc đã đệ trình<br>
@@ -89,11 +149,11 @@
             Victoria, giá “1 penny” ra đời.
         </div>
 
-        <!-- Con dấu -->
+        <!-- Con dấu màu hồng -->
         <div class="con-dau">
             <img
                 src="IMAGES/condau1.gif"
-                alt="Hội nghị cấp cao tem thư" width="183" height="171"
+                alt="Hội nghị cấp cao tem thư"
             >
         </div>
 
@@ -110,14 +170,58 @@
 
     </div>
 
-    <!-- Con tem ở giữa hai phần -->
+    <!--
+        Con tem giữa trang.
+        Giữ đúng vị trí ngang left: 425px.
+        Hiệu ứng chỉ thay đổi vị trí top.
+    -->
     <img
         src="IMAGES/ngay2.gif"
         alt="Tem ngày"
         class="tem-ngay"
+        onmouseover="hienThongBao(this); dungTemRoi();"
+        onmouseout="anThongBao(); tiepTucTemRoi();"
     >
 
 </div>
+
+<script>
+    /*
+        Hiện thông báo khi rê chuột vào tem.
+    */
+    function hienThongBao(anhTem) {
+        var thongBao = document.getElementById("thongBaoTem");
+
+        thongBao.style.display = "block";
+    }
+
+    /*
+        Ẩn thông báo khi rê chuột ra khỏi tem.
+    */
+    function anThongBao() {
+        var thongBao = document.getElementById("thongBaoTem");
+
+        thongBao.style.display = "none";
+    }
+
+    /*
+        Dừng tem rơi khi người dùng rê chuột vào.
+    */
+    function dungTemRoi() {
+        var temNgay = document.querySelector(".tem-ngay");
+
+        temNgay.style.animationPlayState = "paused";
+    }
+
+    /*
+        Cho tem tiếp tục rơi khi rê chuột ra.
+    */
+    function tiepTucTemRoi() {
+        var temNgay = document.querySelector(".tem-ngay");
+
+        temNgay.style.animationPlayState = "running";
+    }
+</script>
 
 </body>
 </html>
