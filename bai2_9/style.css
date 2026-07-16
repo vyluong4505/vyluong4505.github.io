@@ -1,6 +1,8 @@
 @charset "utf-8";
 
-/* ==================== THIẾT LẬP CHUNG ==================== */
+/* ==================================================
+   THIẾT LẬP CHUNG
+================================================== */
 
 * {
     box-sizing: border-box;
@@ -13,60 +15,68 @@ body {
 }
 
 body {
+    min-width: 960px;
     background-color: #ffffff;
     font-family: "Times New Roman", Times, serif;
 }
 
 /*
-    Kích thước theo hình mẫu:
-    rộng 640px, cao khoảng 378px.
+    Hình mẫu cũ khoảng 640 x 378px.
+    Toàn bộ bài này được tăng lên 1,5 lần:
+
+    640 × 1,5 = 960px
+    378 × 1,5 = 567px
 */
 .wrapper {
     position: relative;
-    width: 640px;
-    height: 378px;
-    margin: 0 auto;
+
+    width: 960px;
+    height: 567px;
+
+    margin: 20px auto;
+
     overflow: hidden;
     background-color: #ffffff;
 }
 
 
-/* ==================== CỘT BÊN TRÁI ==================== */
+/* ==================================================
+   PHẦN BÊN TRÁI
+================================================== */
 
-.cot-trai {
+.ben-trai {
     position: absolute;
     top: 0;
     left: 0;
 
-    width: 320px;
-    height: 378px;
+    width: 480px;
+    height: 567px;
 
-    background-color: #ffffff;
     overflow: hidden;
+    background-color: #ffffff;
 }
 
 
-/* Hình con dấu chìm nhỏ ở góc trái */
+/* Ảnh mờ ở góc trái */
 
 .anh-moc {
     position: absolute;
     top: 0;
     left: 0;
 
-    width: 130px;
-    height: 130px;
+    width: 195px;
+    height: 195px;
 
     object-fit: contain;
-    opacity: 0.6;
+    opacity: 0.7;
 
-    z-index: 1;
+    z-index: 2;
 }
 
 
 /*
-    Ảnh tem.jpg làm nền chìm.
-
-    z-index: 1 nên ảnh này luôn nằm dưới soc-ngang.
+    Ảnh tem.jpg nằm dưới sọc ngang.
+    Không thu nhỏ ảnh xuống như phiên bản trước.
 */
 
 .anh-tem-nen {
@@ -74,8 +84,8 @@ body {
     top: 0;
     left: 0px;
 
-    width: 290px;
-    height: 285px;
+    width: 438px;
+    height: 430px;
 
     object-fit: cover;
     object-position: center top;
@@ -84,65 +94,68 @@ body {
 }
 
 
-/*
-    Ảnh sọc ngang nằm trên tem.jpg.
-
-    tem.jpg: z-index 1
-    soc-ngang: z-index 4
-*/
+/* Đường sọc ngang màu vàng */
 
 .soc-ngang {
     position: absolute;
-    top: 213px;
+    top: 320px;
     left: 0;
 
-    width: 313px;
-    height: 4px;
+    width: 470px;
+    height: 7px;
 
     background-image: url("IMAGES/socngang.gif");
     background-repeat: repeat-x;
-    background-position: left top;
+    background-position: left center;
 
-    z-index: 4;
+    /*
+        Border dự phòng nếu ảnh socngang.gif quá mảnh
+        hoặc có vùng trong suốt.
+    */
+    border-top: 2px solid #e5a900;
+
+    z-index: 10;
 }
 
 
-/* Dải màu đứng bên phải cột trái */
+/* Dải màu đứng */
 
 .mau-doc {
     position: absolute;
-    top: 213px;
-    left: 292px;
+    top: 320px;
+    right: 11px;
 
-    width: 20px;
-    height: 137px;
+    width: 30px;
+    height: 218px;
 
     object-fit: fill;
 
-    z-index: 5;
+    z-index: 12;
 }
 
 
-/* Danh sách bốn con tem phía dưới */
+/* Danh sách bốn con tem */
 
 .danh-sach-tem {
     position: absolute;
-    top: 282px;
-    left: 59px;
+    top: 422px;
+    left: 88px;
 
-    height: 58px;
+    height: 93px;
 
     display: flex;
     align-items: flex-end;
-    gap: 1px;
+    gap: 2px;
 
-    z-index: 7;
+    z-index: 20;
 }
 
 .danh-sach-tem img {
     display: block;
-    width: 42px;
-    height: 55px;
+
+    width: 63px;
+    height: 83px;
+
     object-fit: fill;
 }
 
@@ -151,115 +164,136 @@ body {
 
 .tem-nghieng {
     position: absolute;
-    top: 240px;
-    left: 208px;
+    top: 347px;
+    left: 325px;
 
-    width: 64px;
-    height: 64px;
+    width: 96px;
+    height: 96px;
 
     object-fit: contain;
 
-    z-index: 8;
+    z-index: 25;
 }
 
 
-/* Đường màu xanh phía dưới */
+/* ==================================================
+   ĐƯỜNG XANH PHÍA DƯỚI
+================================================== */
 
-.duong-xanh-duoi {
+.gach-xanh-duoi {
     position: absolute;
-    top: 351px;
-    left: 5px;
+    top: 525px;
+    left: 8px;
 
-    width: 309px;
-    height: 4px;
+    width: 462px;
+    height: 6px;
 
+    /*
+        Sử dụng ảnh MSOC.gif như tài nguyên bài.
+    */
     background-image: url("IMAGES/MSOC.gif");
     background-repeat: repeat-x;
     background-position: left center;
 
-    z-index: 6;
+    /*
+        Đường xanh dự phòng giúp luôn hiển thị,
+        kể cả MSOC.gif quá nhạt hoặc trong suốt.
+    */
+    border-top: 4px solid #08789d;
+
+    z-index: 30;
 }
 
 
-/* Menu cuối cột trái */
+/* Menu cuối trang */
 
 .menu-footer {
     position: absolute;
-    top: 364px;
+    top: 541px;
     left: 0;
 
-    width: 314px;
-    height: 14px;
+    width: 470px;
+    height: 26px;
 
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
     white-space: nowrap;
 
     font-family: "Times New Roman", Times, serif;
-    font-size: 10px;
-    line-height: 14px;
+    font-size: 15px;
 
-    z-index: 10;
+    z-index: 35;
 }
 
 .menu-footer a {
-    color: #233d98;
+    color: #263f9b;
     text-decoration: none;
 }
 
 .menu-footer a:hover {
-    color: #e50075;
+    color: #e50072;
     text-decoration: underline;
 }
 
 .menu-footer span {
-    color: #333333;
+    color: #252525;
 }
-.cot-phai {
+
+
+/* ==================================================
+   PHẦN BÊN PHẢI
+================================================== */
+
+.ben-phai {
     position: absolute;
     top: 0;
-    left: 320px;
+    left: 480px;
 
-    width: 320px;
-    height: 378px;
+    width: 480px;
+    height: 567px;
 
-    background-color: #a7b5d8;
+    background-color: #a7b5d7;
 }
 
 
 /* Ảnh tiêu đề */
 
-.tieu-de {
+.tieu-de-anh {
     position: absolute;
-    top: 17px;
+    top: 26px;
     left: 0;
 
-    width: 320px;
+    width: 480px;
+
     text-align: center;
 }
 
-.tieu-de img {
-    width: 165px;
-    height: auto;
+.tieu-de-anh img {
     display: inline-block;
+
+    width: 248px;
+    height: auto;
 }
 
 
-/* Đoạn giới thiệu lịch sử con tem */
+/* Nội dung lịch sử */
 
 .noi-dung {
     position: absolute;
-    top: 82px;
-    left: 10px;
+    top: 123px;
+    left: 30px;
 
-    width: 300px;
+    width: 420px;
 
-    color: #171717;
+    color: #111111;
     text-align: center;
 
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 10px;
-    line-height: 12px;
-    font-weight: normal;
+    font-size: 15px;
+    line-height: 18px;
 }
 
 
@@ -267,49 +301,66 @@ body {
 
 .con-dau {
     position: absolute;
-    top: 185px;
+    top: 270px;
     left: 0;
 
-    width: 320px;
+    width: 480px;
+
     text-align: center;
 }
 
 .con-dau img {
-    width: 112px;
-    height: 106px;
+    display: inline-block;
+
+    width: 168px;
+    height: 160px;
+
     object-fit: contain;
 }
 
-.nhom {
+
+/* Dòng NHÓM MULTIMEDIA SƯU TẬP */
+
+.dong-nhom {
     position: absolute;
-    top: 326px;
     left: 0;
+    bottom: 40px;
 
-    width: 320px;
-    height: 25px;
+    width: 480px;
+    height: 40px;
 
-    border-top: 2px dotted #1f2b46;
-    border-bottom: 2px dotted #1f2b46;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 
-    color: #1e2330;
-    text-align: center;
-    white-space: nowrap;
+    border-top: 3px dotted #1b263d;
+    border-bottom: 3px dotted #1b263d;
+
+    color: #182038;
 
     font-family: "Courier New", Courier, monospace;
-    font-size: 13px;
+    font-size: 18px;
     font-weight: bold;
-    line-height: 21px;
 }
+
+.dong-nhom b {
+    font-size: 18px;
+}
+
+
+/* ==================================================
+   CON TEM NẰM GIỮA HAI CỘT
+================================================== */
 
 .tem-ngay {
     position: absolute;
-    top: 64px;
-    left: 285px;
+    top: 93px;
+    left: 425px;
 
-    width: 65px;
-    height: 55px;
+    width: 102px;
+    height: 89px;
 
     object-fit: contain;
 
-    z-index: 20;
+    z-index: 50;
 }
