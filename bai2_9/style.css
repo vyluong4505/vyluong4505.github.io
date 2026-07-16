@@ -1,68 +1,315 @@
 @charset "utf-8";
 
-/* Giúp cố định khung 1000px luôn ở giữa màn hình khi phóng to/thu nhỏ */
+/* ==================== THIẾT LẬP CHUNG ==================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ffffff;
+    font-family: "Times New Roman", Times, serif;
+}
+
+/*
+    Kích thước theo hình mẫu:
+    rộng 640px, cao khoảng 378px.
+*/
 .wrapper {
-    position: relative; 
-    width: 1000px;
-    margin: 0 auto; 
+    position: relative;
+    width: 640px;
+    height: 378px;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: #ffffff;
 }
 
-/* Đưa ảnh tem lớn làm nền cho cột trái để hàng gạch ngang bên dưới đè lên được */
-.nen-tem {
-    background-image: url("IMAGES/tem.jpg");
-    background-repeat: no-repeat;
-    background-size: 387px 432px;
-    background-position: left top;
-}
 
-/* --- Tọa độ chuẩn cho các ảnh nổi theo ảnh mẫu --- */
-.anh1 {
+/* ==================== CỘT BÊN TRÁI ==================== */
+
+.cot-trai {
     position: absolute;
-    left: 105px;  /* Đã căn chỉnh để đè lên vạch màu vàng */
-    top: 580px;   
-    z-index: 10;  
+    top: 0;
+    left: 0;
+
+    width: 320px;
+    height: 378px;
+
+    background-color: #ffffff;
+    overflow: hidden;
 }
 
-.anh2 {
+
+/* Hình con dấu chìm nhỏ ở góc trái */
+
+.anh-moc {
     position: absolute;
-    left: 350px; /* Con tem xéo góc */
-    top: 510px;
-    z-index: 11; 
+    top: 0;
+    left: 0;
+
+    width: 130px;
+    height: 130px;
+
+    object-fit: contain;
+    opacity: 0.6;
+
+    z-index: 1;
 }
 
-.anh3 {
+
+/*
+    Ảnh tem.jpg làm nền chìm.
+
+    z-index: 1 nên ảnh này luôn nằm dưới soc-ngang.
+*/
+
+.anh-tem-nen {
     position: absolute;
-    left: 425px; /* Ảnh Happy Birthday */
-    top: 135px;
-    z-index: 12;
+    top: 0;
+    left: 0px;
+
+    width: 290px;
+    height: 285px;
+
+    object-fit: cover;
+    object-position: center top;
+
+    z-index: 1;
 }
 
-/* Nền gạch ngang */
-.gachngang {
+
+/*
+    Ảnh sọc ngang nằm trên tem.jpg.
+
+    tem.jpg: z-index 1
+    soc-ngang: z-index 4
+*/
+
+.soc-ngang {
+    position: absolute;
+    top: 213px;
+    left: 0;
+
+    width: 313px;
+    height: 4px;
+
     background-image: url("IMAGES/socngang.gif");
     background-repeat: repeat-x;
-    background-position: top;
+    background-position: left top;
+
+    z-index: 4;
 }
 
-/* --- TẠO 2 HÀNG CHẤM CÓ KHOẢNG TRỐNG CHỨA CHỮ Ở GIỮA --- */
-.cham {
-    border-top: 3px dotted #000000;    /* Hàng chấm phía trên chữ */
-    border-bottom: 3px dotted #000000; /* Hàng chấm phía dưới chữ */
-    padding: 6px 0;                    /* Khoảng cách từ chữ tới 2 hàng chấm */
-    display: inline-block;             /* Thu hẹp viền chấm vừa bằng chiều rộng chữ */
-    width: 100%;                        /* Hoặc chỉnh % theo độ dài bạn muốn */
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    font-size: 14px;
-    letter-spacing: 2px;               /* Giãn cách các chữ ra nhìn cho giống mẫu */
-    color: #000000;
+
+/* Dải màu đứng bên phải cột trái */
+
+.mau-doc {
+    position: absolute;
+    top: 213px;
+    left: 292px;
+
+    width: 20px;
+    height: 137px;
+
+    object-fit: fill;
+
+    z-index: 5;
 }
 
-/* Menu dưới cùng */
+
+/* Danh sách bốn con tem phía dưới */
+
+.danh-sach-tem {
+    position: absolute;
+    top: 282px;
+    left: 59px;
+
+    height: 58px;
+
+    display: flex;
+    align-items: flex-end;
+    gap: 1px;
+
+    z-index: 7;
+}
+
+.danh-sach-tem img {
+    display: block;
+    width: 42px;
+    height: 55px;
+    object-fit: fill;
+}
+
+
+/* Con tem nghiêng */
+
+.tem-nghieng {
+    position: absolute;
+    top: 240px;
+    left: 208px;
+
+    width: 64px;
+    height: 64px;
+
+    object-fit: contain;
+
+    z-index: 8;
+}
+
+
+/* Đường màu xanh phía dưới */
+
+.duong-xanh-duoi {
+    position: absolute;
+    top: 351px;
+    left: 5px;
+
+    width: 309px;
+    height: 4px;
+
+    background-image: url("IMAGES/MSOC.gif");
+    background-repeat: repeat-x;
+    background-position: left center;
+
+    z-index: 6;
+}
+
+
+/* Menu cuối cột trái */
+
+.menu-footer {
+    position: absolute;
+    top: 364px;
+    left: 0;
+
+    width: 314px;
+    height: 14px;
+
+    text-align: center;
+    white-space: nowrap;
+
+    font-family: "Times New Roman", Times, serif;
+    font-size: 10px;
+    line-height: 14px;
+
+    z-index: 10;
+}
+
 .menu-footer a {
-    color: #333399;
+    color: #233d98;
     text-decoration: none;
-    font-family: Arial, sans-serif;
+}
+
+.menu-footer a:hover {
+    color: #e50075;
+    text-decoration: underline;
+}
+
+.menu-footer span {
+    color: #333333;
+}
+.cot-phai {
+    position: absolute;
+    top: 0;
+    left: 320px;
+
+    width: 320px;
+    height: 378px;
+
+    background-color: #a7b5d8;
+}
+
+
+/* Ảnh tiêu đề */
+
+.tieu-de {
+    position: absolute;
+    top: 17px;
+    left: 0;
+
+    width: 320px;
+    text-align: center;
+}
+
+.tieu-de img {
+    width: 165px;
+    height: auto;
+    display: inline-block;
+}
+
+
+/* Đoạn giới thiệu lịch sử con tem */
+
+.noi-dung {
+    position: absolute;
+    top: 82px;
+    left: 10px;
+
+    width: 300px;
+
+    color: #171717;
+    text-align: center;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    line-height: 12px;
+    font-weight: normal;
+}
+
+
+/* Con dấu màu hồng */
+
+.con-dau {
+    position: absolute;
+    top: 185px;
+    left: 0;
+
+    width: 320px;
+    text-align: center;
+}
+
+.con-dau img {
+    width: 112px;
+    height: 106px;
+    object-fit: contain;
+}
+
+.nhom {
+    position: absolute;
+    top: 326px;
+    left: 0;
+
+    width: 320px;
+    height: 25px;
+
+    border-top: 2px dotted #1f2b46;
+    border-bottom: 2px dotted #1f2b46;
+
+    color: #1e2330;
+    text-align: center;
+    white-space: nowrap;
+
+    font-family: "Courier New", Courier, monospace;
+    font-size: 13px;
     font-weight: bold;
-    font-size: 14px;
+    line-height: 21px;
+}
+
+.tem-ngay {
+    position: absolute;
+    top: 64px;
+    left: 285px;
+
+    width: 65px;
+    height: 55px;
+
+    object-fit: contain;
+
+    z-index: 20;
 }
