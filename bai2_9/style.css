@@ -464,7 +464,7 @@ body {
         Cho phép con tem rơi từ trên xuống.
     */
     animation-name: temRoi;
-    animation-duration: 4s;
+    animation-duration: 5s;
     animation-timing-function: ease-in;
     animation-iteration-count: infinite;
 }
@@ -495,7 +495,7 @@ body {
     }
 
     100% {
-        top: 93px;
+        top: 460px;
         transform: rotate(0deg);
     }
 }
