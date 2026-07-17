@@ -53,7 +53,11 @@
 	document.getElementById("chia").onclick=function() {
 			var so1 = Number(document.getElementById("txtso1").value);
 			var so2 = Number(document.getElementById("txtso2").value);
-			theKetQua.innerHTML=so1/so2;
+		if(so2==0){
+			theKetQua.innerHTML="Lỗi: Không thể chia cho 0!";
+			{ else {
+				theKetQua.innerHTML =so1/so2;
+			}
 		};
 	</script>
 </body>
