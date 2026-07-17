@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hai Slideshow</title>
+
+    <style>
+        /* ==================================================
+           THIẾT LẬP CHUNG
+        ================================================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+        }
+
+        img {
+            display: block;
+            vertical-align: middle;
+        }
+
+
+        /* ==================================================
+           BÀI 1: SLIDESHOW CÓ DẤU CHẤM
+        ================================================== */
+
+        .slideshow-1-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #000000;
+        }
+
+        /* Ẩn tất cả slide bài 1 */
+        .slide-1 {
+            display: none;
+            position: relative;
+        }
+
+        .slide-1 img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        /* Nút lùi và tới của bài 1 */
+        .prev-1,
+        .next-1 {
+            position: absolute;
+            top: 50%;
+            z-index: 10;
+
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+
+            cursor: pointer;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+
+            border-radius: 0 3px 3px 0;
+            background-color: rgba(0, 0, 0, 0.25);
+
+            transition: 0.3s;
+            user-select: none;
+        }
+
+        .next-1 {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev-1 {
+            left: 0;
+        }
+
+        .prev-1:hover,
+        .next-1:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Nội dung chú thích */
+        .text-1 {
+            position: absolute;
+            bottom: 8px;
+
+            width: 100%;
+            padding: 8px 12px;
+
+            color: #ffffff;
+            font-size: 17px;
+            font-weight: bold;
+            text-align: center;
+
+            text-shadow:
+                -1px -1px 0 #000000,
+                 1px -1px 0 #000000,
+                -1px  1px 0 #000000,
+                 1px  1px 0 #000000;
+        }
+
+        /* Số thứ tự slide */
+        .numbertext-1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 5;
+
+            padding: 8px 12px;
+
+            color: #ffffff;
+            font-size: 12px;
+            background-color: rgba(0, 0, 0, 0.35);
+        }
+
+        /* Khu vực dấu chấm */
+        .dots-1 {
+            margin-top: 12px;
+            text-align: center;
+        }
+
+        .dot-1 {
+            display: inline-block;
+
+            width: 15px;
+            height: 15px;
+            margin: 0 3px;
+
+            cursor: pointer;
+            border-radius: 50%;
+            background-color: #bbbbbb;
+
+            transition: background-color 0.3s;
+        }
+
+        .dot-1.active-1,
+        .dot-1:hover {
+            background-color: #333333;
+        }
+
+        /* Hiệu ứng mờ */
+        .fade-1 {
+            animation-name: fadeBai1;
+            animation-duration: 1.2s;
+        }
+
+        @keyframes fadeBai1 {
+            from {
+                opacity: 0.4;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+
+        /* ==================================================
+           ĐƯỜNG NGĂN CÁCH
+        ================================================== */
+
+        .duong-ngan-cach {
+            width: 100%;
+            max-width: 1000px;
+            height: 2px;
+
+            margin: 45px auto;
+
+            border: none;
+            background-color: #cccccc;
+        }
+
+
+        /* ==================================================
+           BÀI 2: GALLERY CÓ ẢNH THU NHỎ
+        ================================================== */
+
+        .gallery-2-container {
+            position: relative;
+
+            max-width: 1000px;
+            margin: 0 auto;
+
+            background-color: #ffffff;
+        }
+
+        /* Ẩn tất cả slide bài 2 */
+        .slide-2 {
+            display: none;
+            position: relative;
+        }
+
+        .slide-2 img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        /* Số thứ tự bài 2 */
+        .numbertext-2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 5;
+
+            padding: 8px 12px;
+
+            color: #ffffff;
+            font-size: 12px;
+            background-color: rgba(0, 0, 0, 0.35);
+        }
+
+        /* Nút lùi và tới bài 2 */
+        .prev-2,
+        .next-2 {
+            position: absolute;
+            top: 42%;
+            z-index: 10;
+
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
+
+            cursor: pointer;
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: bold;
+
+            border-radius: 0 3px 3px 0;
+            background-color: rgba(0, 0, 0, 0.25);
+
+            transition: 0.3s;
+            user-select: none;
+        }
+
+        .prev-2 {
+            left: 0;
+        }
+
+        .next-2 {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev-2:hover,
+        .next-2:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Phần tên ảnh */
+        .caption-2-container {
+            padding: 10px 16px;
+
+            color: #ffffff;
+            text-align: center;
+            background-color: #222222;
+        }
+
+        #caption-2 {
+            margin: 0;
+            font-size: 17px;
+        }
+
+        /* Hàng ảnh thu nhỏ */
+        .row-2 {
+            display: flex;
+            width: 100%;
+        }
+
+        .column-2 {
+            width: 16.666666%;
+        }
+
+        .demo-2 {
+            width: 100%;
+            height: 100px;
+
+            cursor: pointer;
+            object-fit: cover;
+            opacity: 0.55;
+
+            transition: opacity 0.3s;
+        }
+
+        .demo-2.active-2,
+        .demo-2:hover {
+            opacity: 1;
+        }
+
+
+        /* ==================================================
+           RESPONSIVE
+        ================================================== */
+
+        @media only screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .slide-1 img,
+            .slide-2 img {
+                height: 350px;
+            }
+
+            .demo-2 {
+                height: 75px;
+            }
+
+            .text-1 {
+                font-size: 14px;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .slide-1 img,
+            .slide-2 img {
+                height: 250px;
+            }
+
+            .prev-1,
+            .next-1,
+            .prev-2,
+            .next-2 {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            .demo-2 {
+                height: 50px;
+            }
+
+            #caption-2 {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==================================================
+         BÀI 1: SLIDESHOW CÓ DẤU CHẤM
+    =================================================== -->
+
+
+
+    <div class="slideshow-1-container">
+
+        <div class="slide-1 fade-1">
+            <div class="numbertext-1">1 / 3</div>
+
+            <img
+                src="img_nature_wide.jpg"
+                alt="Thiên nhiên"
+            >
+
+            <div class="text-1">Thiên nhiên tươi đẹp</div>
+        </div>
+
+        <div class="slide-1 fade-1">
+            <div class="numbertext-1">2 / 3</div>
+
+            <img
+                src="img_snow_wide.jpg"
+                alt="Núi tuyết"
+            >
+
+            <div class="text-1">Núi tuyết trắng</div>
+        </div>
+
+        <div class="slide-1 fade-1">
+            <div class="numbertext-1">3 / 3</div>
+
+            <img
+                src="img_mountains_wide.jpg"
+                alt="Núi"
+            >
+
+            <div class="text-1">Núi non hùng vĩ</div>
+        </div>
+
+        <a class="prev-1" onclick="plusSlides1(-1)">&#10094;</a>
+
+        <a class="next-1" onclick="plusSlides1(1)">&#10095;</a>
+
+    </div>
+
+    <div class="dots-1">
+        <span class="dot-1" onclick="currentSlide1(1)"></span>
+        <span class="dot-1" onclick="currentSlide1(2)"></span>
+        <span class="dot-1" onclick="currentSlide1(3)"></span>
+    </div>
+
+
+    <hr class="duong-ngan-cach">
+
+
+    <!-- ==================================================
+         BÀI 2: GALLERY CÓ ẢNH THU NHỎ
+    =================================================== -->
+
+
+    <div class="gallery-2-container">
+
+        <div class="slide-2">
+            <div class="numbertext-2">1 / 6</div>
+
+            <img
+                src="img_woods_wide.jpg"
+                alt="Khu rừng"
+            >
+        </div>
+
+        <div class="slide-2">
+            <div class="numbertext-2">2 / 6</div>
+
+            <img
+                src="img_5terre_wide.jpg"
+                alt="Cinque Terre"
+            >
+        </div>
+
+        <div class="slide-2">
+            <div class="numbertext-2">3 / 6</div>
+
+            <img
+                src="img_mountains_wide.jpg"
+                alt="Núi và vịnh"
+            >
+        </div>
+
+        <div class="slide-2">
+            <div class="numbertext-2">4 / 6</div>
+
+            <img
+                src="img_lights_wide.jpg"
+                alt="Cực quang"
+            >
+        </div>
+
+        <div class="slide-2">
+            <div class="numbertext-2">5 / 6</div>
+
+            <img
+                src="img_nature_wide.jpg"
+                alt="Thiên nhiên và bình minh"
+            >
+        </div>
+
+        <div class="slide-2">
+            <div class="numbertext-2">6 / 6</div>
+
+            <img
+                src="img_snow_wide.jpg"
+                alt="Núi tuyết"
+            >
+        </div>
+
+        <a class="prev-2" onclick="plusSlides2(-1)">&#10094;</a>
+
+        <a class="next-2" onclick="plusSlides2(1)">&#10095;</a>
+
+        <div class="caption-2-container">
+            <p id="caption-2"></p>
+        </div>
+
+        <div class="row-2">
+
+            <div class="column-2">
+                <img
+                    class="demo-2"
+                    src="img_woods.jpg"
+                    onclick="currentSlide2(1)"
+                    alt="Khu rừng"
+                >
+            </div>
+
+            <div class="column-2">
+                <img
+                    class="demo-2"
+                    src="img_5terre.jpg"
+                    onclick="currentSlide2(2)"
+                    alt="Cinque Terre"
+                >
+            </div>
+
+            <div class="column-2">
+                <img
+                    class="demo-2"
+                    src="img_mountains.jpg"
+                    onclick="currentSlide2(3)"
+                    alt="Núi và vịnh"
+                >
+            </div>
+
+            <div class="column-2">
+                <img
+                    class="demo-2"
+                    src="img_lights.jpg"
+                    onclick="currentSlide2(4)"
+                    alt="Cực quang"
+                >
+            </div>
+
+            <div class="column-2">
+                <img
+                    class="demo-2"
+                    src="img_nature.jpg"
+                    onclick="currentSlide2(5)"
+                    alt="Thiên nhiên và bình minh"
+                >
+            </div>
+
+            <div class="column-2">
+                <img
+                    class="demo-2"
+                    src="img_snow.jpg"
+                    onclick="currentSlide2(6)"
+                    alt="Núi tuyết"
+                >
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+        /* ==================================================
+           JAVASCRIPT BÀI 1
+        ================================================== */
+
+        let slideIndex1 = 1;
+
+        showSlides1(slideIndex1);
+
+        function plusSlides1(n) {
+            slideIndex1 += n;
+            showSlides1(slideIndex1);
+        }
+
+        function currentSlide1(n) {
+            slideIndex1 = n;
+            showSlides1(slideIndex1);
+        }
+
+        function showSlides1(n) {
+            let i;
+
+            const slides1 = document.getElementsByClassName("slide-1");
+            const dots1 = document.getElementsByClassName("dot-1");
+
+            if (n > slides1.length) {
+                slideIndex1 = 1;
+            }
+
+            if (n < 1) {
+                slideIndex1 = slides1.length;
+            }
+
+            for (i = 0; i < slides1.length; i++) {
+                slides1[i].style.display = "none";
+            }
+
+            for (i = 0; i < dots1.length; i++) {
+                dots1[i].classList.remove("active-1");
+            }
+
+            slides1[slideIndex1 - 1].style.display = "block";
+            dots1[slideIndex1 - 1].classList.add("active-1");
+        }
+
+
+        /* ==================================================
+           JAVASCRIPT BÀI 2
+        ================================================== */
+
+        let slideIndex2 = 1;
+
+        showSlides2(slideIndex2);
+
+        function plusSlides2(n) {
+            slideIndex2 += n;
+            showSlides2(slideIndex2);
+        }
+
+        function currentSlide2(n) {
+            slideIndex2 = n;
+            showSlides2(slideIndex2);
+        }
+
+        function showSlides2(n) {
+            let i;
+
+            const slides2 = document.getElementsByClassName("slide-2");
+            const thumbnails2 = document.getElementsByClassName("demo-2");
+            const caption2 = document.getElementById("caption-2");
+
+            if (n > slides2.length) {
+                slideIndex2 = 1;
+            }
+
+            if (n < 1) {
+                slideIndex2 = slides2.length;
+            }
+
+            for (i = 0; i < slides2.length; i++) {
+                slides2[i].style.display = "none";
+            }
+
+            for (i = 0; i < thumbnails2.length; i++) {
+                thumbnails2[i].classList.remove("active-2");
+            }
+
+            slides2[slideIndex2 - 1].style.display = "block";
+
+            thumbnails2[slideIndex2 - 1].classList.add("active-2");
+
+            caption2.innerHTML =
+                thumbnails2[slideIndex2 - 1].alt;
+        }
+    </script>
+
+</body>
+</html>
