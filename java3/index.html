@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+	<center>
+	<table border="0" cellspacing="0" cellpadding="0">
+  <tbody>
+    <tr>
+      <td width="111">Nhập số thứ 1 :</td>
+      <td width="144"><input type="text" id="txtso1"></td>
+    </tr>
+    <tr>
+      <td>Nhập số thứ 2 :</td>
+      <td><input type="text" id="txtso2"></td>
+    </tr>
+    <tr>
+      <td>Phép toán</td>
+      <td><input type="button" name="cong" id="cong" value="+">
+		  <input type="button" name="tru" id="tru" value="-">
+		  <input type="button" name="nhan" id="nhan" value="*">
+		   <input type="button" name="chia" id="chia" value="/">
+		</td>
+    </tr>
+    <tr>
+      <td>Kết quả:</td>
+      <td><p id="ketqua" style="font-weight: bold"></p></td>
+    </tr>
+  </tbody>
+</table>
+
+	</center>
+<script>
+	var theKetQua = document.getElementById("ketqua");
+		document.getElementById("cong").onclick=function() {
+			var so1 = Number(document.getElementById("txtso1").value);
+			var so2 = Number(document.getElementById("txtso2").value);
+			theKetQua.innerHTML=so1+so2;
+		};
+		document.getElementById("tru").onclick=function() {
+			var so1 = Number(document.getElementById("txtso1").value);
+			var so2 = Number(document.getElementById("txtso2").value);
+			theKetQua.innerHTML=so1-so2;
+		};
+		document.getElementById("nhan").onclick=function() {
+			var so1 = Number(document.getElementById("txtso1").value);
+			var so2 = Number(document.getElementById("txtso2").value);
+			theKetQua.innerHTML=so1*so2;
+		};
+	document.getElementById("chia").onclick=function() {
+			var so1 = Number(document.getElementById("txtso1").value);
+			var so2 = Number(document.getElementById("txtso2").value);
+			theKetQua.innerHTML=so1/so2;
+		};
+	</script>
+</body>
+</html>
