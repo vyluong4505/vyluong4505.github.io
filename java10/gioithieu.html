@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giới thiệu - BlueBank</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page-wrap">
+  <header class="site-header">
+    <div class="brand">
+      <div class="logo-mark">💳</div>
+      <div><h1>BlueBank</h1><p>Giới thiệu về định hướng và giá trị của ngân hàng số BlueBank.</p></div>
+    </div>
+  </header>
+
+  <nav class="topnav" id="mainNav">
+    <a class="brand-link" href="index.html">Trang chủ</a>
+    <a class="active" href="gioithieu.html">Giới thiệu</a>
+    <a href="index.html#dichvu">Dịch vụ</a>
+    <a href="index.html#tintuc">Tin tức</a>
+    <a href="lienhe.html">Liên hệ</a>
+    <a href="#" class="login-link" onclick="openLoginModal(); return false;">🔐 Đăng nhập</a>
+    <a href="javascript:void(0);" class="menu-icon" onclick="document.getElementById('mainNav').classList.toggle('responsive')">☰</a>
+  </nav>
+
+  <div class="content-layout">
+    <aside class="sidebar">
+      <h2 class="sidebar-title">Giới thiệu</h2>
+      <div class="side-menu">
+        <a class="side-btn active" href="#tongquan">Tổng quan</a>
+        <a class="side-btn" href="#tamnhin">Tầm nhìn</a>
+        <a class="side-btn" href="#giatri">Giá trị cốt lõi</a>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <section id="tongquan">
+        <h2 class="section-title">Tổng quan</h2>
+        <p>BlueBank là mô hình website ngân hàng tĩnh được xây dựng phục vụ bài thực hành HTML, CSS, W3.CSS và JavaScript cơ bản.</p>
+      </section>
+
+      <section id="tamnhin">
+        <h2 class="section-title">Tầm nhìn</h2>
+        <p>Đem đến trải nghiệm tài chính số đơn giản, minh bạch và thuận tiện cho mọi người dùng.</p>
+      </section>
+
+      <section id="giatri">
+        <h2 class="section-title">Giá trị cốt lõi</h2>
+        <div class="cards">
+          <article class="card"><div class="card-icon">🔒</div><h3>An toàn</h3><p>Luôn đặt bảo mật thông tin làm ưu tiên.</p></article>
+          <article class="card"><div class="card-icon">🤝</div><h3>Thân thiện</h3><p>Thiết kế dễ hiểu và dễ sử dụng.</p></article>
+          <article class="card"><div class="card-icon">⚡</div><h3>Nhanh chóng</h3><p>Tối ưu thao tác và thời gian xử lý.</p></article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <strong>BlueBank</strong> — Website tĩnh minh họa bố cục header, menu, hai cột và footer.
+  </footer>
+</div>
+
+  <!-- MODAL ĐĂNG NHẬP DỰA TRÊN W3.CSS MODAL LOGIN -->
+  <div id="loginModal" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom login-modal-content">
+
+      <div class="login-modal-header">
+        <button
+          type="button"
+          class="w3-button w3-xlarge w3-transparent w3-hover-red login-close"
+          onclick="closeLoginModal()"
+          title="Đóng"
+        >&times;</button>
+
+        <div class="login-avatar">👤</div>
+        <h2>Đăng nhập BlueBank</h2>
+        <p>Truy cập khu vực ngân hàng số</p>
+      </div>
+
+      <form class="login-form-area" onsubmit="return loginDemo(event)">
+        <label for="loginUsername"><b>Tên đăng nhập</b></label>
+        <input
+          id="loginUsername"
+          type="text"
+          placeholder="Nhập tên đăng nhập"
+          required
+        >
+
+        <label for="loginPassword"><b>Mật khẩu</b></label>
+        <input
+          id="loginPassword"
+          type="password"
+          placeholder="Nhập mật khẩu"
+          required
+        >
+
+        <label>
+          <input id="rememberLogin" class="w3-check" type="checkbox" checked>
+          Ghi nhớ đăng nhập
+        </label>
+
+        <button class="w3-button w3-block w3-section w3-padding login-submit" type="submit">
+          Đăng nhập
+        </button>
+
+        <div id="loginMessage" class="login-message"></div>
+      </form>
+
+      <div class="login-modal-footer">
+        <button
+          type="button"
+          class="w3-button w3-red w3-round"
+          onclick="closeLoginModal()"
+        >Hủy</button>
+
+        <span class="w3-right w3-padding">
+          <a href="#" onclick="forgotPassword(event)">Quên mật khẩu?</a>
+        </span>
+      </div>
+
+    </div>
+  </div>
+
+<script>
+
+function openLoginModal() {
+  document.getElementById("loginModal").style.display = "block";
+  const message = document.getElementById("loginMessage");
+  message.className = "login-message";
+  message.textContent = "";
+}
+
+function closeLoginModal() {
+  document.getElementById("loginModal").style.display = "none";
+}
+
+function loginDemo(event) {
+  event.preventDefault();
+
+  const username = document.getElementById("loginUsername").value.trim();
+  const password = document.getElementById("loginPassword").value;
+  const message = document.getElementById("loginMessage");
+  const loginButtons = document.querySelectorAll(".login-link");
+
+  if (username === "admin" && password === "123456") {
+    message.className = "login-message success";
+    message.textContent = "Đăng nhập thành công! Xin chào admin.";
+
+    loginButtons.forEach(button => {
+      button.textContent = "👤 admin";
+    });
+
+    setTimeout(closeLoginModal, 900);
+  } else {
+    message.className = "login-message error";
+    message.textContent = "Sai tài khoản hoặc mật khẩu. Hãy dùng admin / 123456.";
+  }
+
+  return false;
+}
+
+function forgotPassword(event) {
+  event.preventDefault();
+  alert("Đây là website tĩnh nên chức năng lấy lại mật khẩu chỉ dùng để minh họa.");
+}
+
+window.addEventListener("click", function(event) {
+  const modal = document.getElementById("loginModal");
+  if (event.target === modal) {
+    closeLoginModal();
+  }
+});
+
+</script>
+</body>
+</html>

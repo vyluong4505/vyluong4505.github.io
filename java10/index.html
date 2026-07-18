@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlueBank - Ngân hàng số</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <!-- 1. HÀNG HEADER LỚN -->
+  <header class="site-header">
+    <div class="brand">
+      <div class="logo-mark">💳</div>
+      <div>
+        <h1>BlueBank</h1>
+        <p>Ngân hàng số hiện đại, an toàn và thân thiện. Quản lý tài chính, tiết kiệm và thanh toán mọi lúc, mọi nơi.</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. HÀNG MENU NHỎ -->
+  <nav class="topnav" id="mainNav">
+    <a class="active brand-link" href="index.html">Trang chủ</a>
+    <a href="gioithieu.html">Giới thiệu</a>
+    <a href="#" onclick="openTab('dichvu')">Dịch vụ</a>
+    <a href="#" onclick="openTab('tintuc')">Tin tức</a>
+    <a href="#" onclick="openTab('hotro')">Hỗ trợ</a>
+    <a href="lienhe.html">Liên hệ</a>
+    <a href="#" class="login-link" onclick="openLoginModal(); return false;">🔐 Đăng nhập</a>
+    <a href="javascript:void(0);" class="menu-icon" onclick="toggleMenu()">☰</a>
+  </nav>
+
+  <!-- 3. KHU VỰC 2 CỘT -->
+  <div class="content-layout">
+
+    <!-- CỘT 1: MENU LỰA CHỌN -->
+    <aside class="sidebar">
+      <h2 class="sidebar-title">Danh mục</h2>
+
+      <div class="side-menu">
+        <button class="side-btn active" onclick="openTab('trangchu', this)">🏠 Tổng quan</button>
+        <button class="side-btn" onclick="openTab('dichvu', this)">💼 Dịch vụ nổi bật</button>
+        <button class="side-btn" onclick="openTab('tintuc', this)">📰 Tin tức tài chính</button>
+        <button class="side-btn" onclick="openTab('tygia', this)">💱 Tỷ giá tham khảo</button>
+        <button class="side-btn" onclick="openTab('hotro', this)">❓ Câu hỏi thường gặp</button>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Mở tài khoản trực tuyến</h3>
+        <p>Chỉ mất vài phút để bắt đầu sử dụng dịch vụ ngân hàng số.</p>
+        <a class="w3-button w3-white w3-round" href="lienhe.html">Đăng ký ngay</a>
+      </div>
+    </aside>
+
+    <!-- CỘT 2: NỘI DUNG ĐỔ RA -->
+    <main class="main-content">
+
+      <section id="trangchu" class="tab-section active">
+        <div class="slideshow">
+
+          <div class="slide one">
+            <h2>Tài chính thông minh cho cuộc sống hiện đại</h2>
+            <p>Theo dõi chi tiêu, chuyển tiền nhanh và quản lý tài khoản chỉ trên một nền tảng duy nhất.</p>
+            <a class="hero-btn" href="#">Khám phá ngay</a>
+          </div>
+
+          <div class="slide two">
+            <h2>Tiết kiệm linh hoạt, sinh lời ổn định</h2>
+            <p>Lựa chọn kỳ hạn phù hợp và chủ động theo dõi tiền lãi ngay trên ứng dụng.</p>
+            <a class="hero-btn" href="#">Xem sản phẩm</a>
+          </div>
+
+          <div class="slide three">
+            <h2>Thanh toán an toàn, ưu đãi mỗi ngày</h2>
+            <p>Quét mã QR, thanh toán hóa đơn và nhận nhiều ưu đãi từ các đối tác liên kết.</p>
+            <a class="hero-btn" href="#">Xem ưu đãi</a>
+          </div>
+
+          <button class="prev" onclick="plusSlides(-1)">❮</button>
+          <button class="next" onclick="plusSlides(1)">❯</button>
+        </div>
+
+        <div class="dots">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+
+        <h2 class="section-title">Dịch vụ phổ biến</h2>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon">📲</div>
+            <h3>Ngân hàng số</h3>
+            <p>Chuyển tiền, thanh toán và quản lý tài khoản 24/7.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">💰</div>
+            <h3>Tiết kiệm</h3>
+            <p>Nhiều kỳ hạn linh hoạt, phù hợp với mọi kế hoạch tài chính.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🛡️</div>
+            <h3>Bảo mật cao</h3>
+            <p>Xác thực đa lớp và cảnh báo giao dịch theo thời gian thực.</p>
+          </article>
+        </div>
+
+        <h2 class="section-title">Bản tin mới</h2>
+
+        <article class="news-item">
+          <div class="news-thumb">📈</div>
+          <div>
+            <h3>Xu hướng thanh toán không tiền mặt tiếp tục tăng</h3>
+            <p>Người dùng ngày càng ưu tiên các hình thức thanh toán nhanh bằng điện thoại và mã QR.</p>
+            <a href="#">Xem chi tiết →</a>
+          </div>
+        </article>
+
+        <article class="news-item">
+          <div class="news-thumb">🏦</div>
+          <div>
+            <h3>5 cách quản lý ngân sách cá nhân hiệu quả</h3>
+            <p>Phân chia thu nhập theo nhóm chi tiêu giúp bạn chủ động hơn trong kế hoạch tài chính.</p>
+            <a href="#">Xem chi tiết →</a>
+          </div>
+        </article>
+      </section>
+
+      <section id="dichvu" class="tab-section">
+        <h2 class="section-title">Dịch vụ nổi bật</h2>
+        <div class="cards">
+          <article class="card"><div class="card-icon">💳</div><h3>Thẻ thanh toán</h3><p>Thanh toán tại cửa hàng và mua sắm trực tuyến thuận tiện.</p></article>
+          <article class="card"><div class="card-icon">🚀</div><h3>Chuyển tiền nhanh</h3><p>Chuyển tiền liên ngân hàng mọi lúc, kể cả ngày nghỉ.</p></article>
+          <article class="card"><div class="card-icon">🏠</div><h3>Vay tiêu dùng</h3><p>Giải pháp tài chính linh hoạt cho nhu cầu học tập, mua sắm và sửa chữa nhà.</p></article>
+        </div>
+      </section>
+
+      <section id="tintuc" class="tab-section">
+        <h2 class="section-title">Tin tức tài chính</h2>
+        <article class="news-item">
+          <div class="news-thumb">💡</div>
+          <div><h3>Mẹo xây dựng quỹ dự phòng</h3><p>Nên duy trì khoản dự phòng tương đương từ ba đến sáu tháng chi phí sinh hoạt.</p></div>
+        </article>
+        <article class="news-item">
+          <div class="news-thumb">📊</div>
+          <div><h3>Lập kế hoạch chi tiêu theo tuần</h3><p>Việc kiểm tra ngân sách thường xuyên giúp phát hiện sớm các khoản chi không cần thiết.</p></div>
+        </article>
+      </section>
+
+      <section id="tygia" class="tab-section">
+        <h2 class="section-title">Tỷ giá tham khảo</h2>
+        <div class="w3-responsive">
+          <table class="w3-table-all w3-hoverable">
+            <tr class="w3-blue"><th>Ngoại tệ</th><th>Mua vào</th><th>Bán ra</th></tr>
+            <tr><td>USD</td><td>24.500</td><td>25.000</td></tr>
+            <tr><td>EUR</td><td>26.300</td><td>27.500</td></tr>
+            <tr><td>JPY</td><td>160</td><td>175</td></tr>
+          </table>
+        </div>
+        <p><em>Dữ liệu minh họa cho bài web tĩnh, không phải tỷ giá thực tế.</em></p>
+      </section>
+
+      <section id="hotro" class="tab-section">
+        <h2 class="section-title">Câu hỏi thường gặp</h2>
+
+        <button class="accordion">Làm sao mở tài khoản trực tuyến?</button>
+        <div class="panel">Điền thông tin tại trang Liên hệ, chọn nhu cầu mở tài khoản và gửi đăng ký.</div>
+
+        <button class="accordion">Tôi quên mật khẩu thì làm gì?</button>
+        <div class="panel">Chọn chức năng “Quên mật khẩu” trên ứng dụng và thực hiện xác minh theo hướng dẫn.</div>
+
+        <button class="accordion">Dịch vụ có hoạt động ngoài giờ không?</button>
+        <div class="panel">Các chức năng ngân hàng số cơ bản hoạt động 24/7.</div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- 4. HÀNG FOOTER 1 CỘT -->
+  <footer class="site-footer">
+    <strong>BlueBank</strong> — Ngân hàng số dành cho mọi người<br>
+    Địa chỉ: 100 Đường Công Nghệ, Thành phố Hồ Chí Minh<br>
+    Email: hotro@bluebank.example | Điện thoại: 1900 1234
+  </footer>
+
+</div>
+
+
+  <!-- MODAL ĐĂNG NHẬP DỰA TRÊN W3.CSS MODAL LOGIN -->
+  <div id="loginModal" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom login-modal-content">
+
+      <div class="login-modal-header">
+        <button
+          type="button"
+          class="w3-button w3-xlarge w3-transparent w3-hover-red login-close"
+          onclick="closeLoginModal()"
+          title="Đóng"
+        >&times;</button>
+
+        <div class="login-avatar">👤</div>
+        <h2>Đăng nhập BlueBank</h2>
+        <p>Truy cập khu vực ngân hàng số</p>
+      </div>
+
+      <form class="login-form-area" onsubmit="return loginDemo(event)">
+        <label for="loginUsername"><b>Tên đăng nhập</b></label>
+        <input
+          id="loginUsername"
+          type="text"
+          placeholder="Nhập tên đăng nhập"
+          required
+        >
+
+        <label for="loginPassword"><b>Mật khẩu</b></label>
+        <input
+          id="loginPassword"
+          type="password"
+          placeholder="Nhập mật khẩu"
+          required
+        >
+
+        <label>
+          <input id="rememberLogin" class="w3-check" type="checkbox" checked>
+          Ghi nhớ đăng nhập
+        </label>
+
+        <button class="w3-button w3-block w3-section w3-padding login-submit" type="submit">
+          Đăng nhập
+        </button>
+
+        <div id="loginMessage" class="login-message"></div>
+      </form>
+
+      <div class="login-modal-footer">
+        <button
+          type="button"
+          class="w3-button w3-red w3-round"
+          onclick="closeLoginModal()"
+        >Hủy</button>
+
+        <span class="w3-right w3-padding">
+          <a href="#" onclick="forgotPassword(event)">Quên mật khẩu?</a>
+        </span>
+      </div>
+
+    </div>
+  </div>
+
+
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n){
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n){
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n){
+  const slides = document.getElementsByClassName("slide");
+  const dots = document.getElementsByClassName("dot");
+
+  if(n > slides.length) slideIndex = 1;
+  if(n < 1) slideIndex = slides.length;
+
+  for(let i = 0; i < slides.length; i++){
+    slides[i].style.display = "none";
+  }
+
+  for(let i = 0; i < dots.length; i++){
+    dots[i].classList.remove("active");
+  }
+
+  slides[slideIndex - 1].style.display = "block";
+  dots[slideIndex - 1].classList.add("active");
+}
+
+function openTab(tabId, button){
+  const sections = document.querySelectorAll(".tab-section");
+  const buttons = document.querySelectorAll(".side-btn");
+
+  sections.forEach(section => section.classList.remove("active"));
+  buttons.forEach(btn => btn.classList.remove("active"));
+
+  const selected = document.getElementById(tabId);
+  if(selected) selected.classList.add("active");
+  if(button) button.classList.add("active");
+
+  window.scrollTo({top: document.querySelector(".content-layout").offsetTop, behavior:"smooth"});
+}
+
+function toggleMenu(){
+  document.getElementById("mainNav").classList.toggle("responsive");
+}
+
+document.querySelectorAll(".accordion").forEach(button => {
+  button.addEventListener("click", function(){
+    this.classList.toggle("active");
+    const panel = this.nextElementSibling;
+    panel.style.display = panel.style.display === "block" ? "none" : "block";
+  });
+});
+
+
+function openLoginModal() {
+  document.getElementById("loginModal").style.display = "block";
+  const message = document.getElementById("loginMessage");
+  message.className = "login-message";
+  message.textContent = "";
+}
+
+function closeLoginModal() {
+  document.getElementById("loginModal").style.display = "none";
+}
+
+function loginDemo(event) {
+  event.preventDefault();
+
+  const username = document.getElementById("loginUsername").value.trim();
+  const password = document.getElementById("loginPassword").value;
+  const message = document.getElementById("loginMessage");
+  const loginButtons = document.querySelectorAll(".login-link");
+
+  if (username === "admin" && password === "123456") {
+    message.className = "login-message success";
+    message.textContent = "Đăng nhập thành công! Xin chào admin.";
+
+    loginButtons.forEach(button => {
+      button.textContent = "👤 admin";
+    });
+
+    setTimeout(closeLoginModal, 900);
+  } else {
+    message.className = "login-message error";
+    message.textContent = "Sai tài khoản hoặc mật khẩu. Hãy dùng admin / 123456.";
+  }
+
+  return false;
+}
+
+function forgotPassword(event) {
+  event.preventDefault();
+  alert("Đây là website tĩnh nên chức năng lấy lại mật khẩu chỉ dùng để minh họa.");
+}
+
+window.addEventListener("click", function(event) {
+  const modal = document.getElementById("loginModal");
+  if (event.target === modal) {
+    closeLoginModal();
+  }
+});
+
+</script>
+
+</body>
+</html>
